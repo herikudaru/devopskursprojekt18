@@ -1,1 +1,3 @@
-# devopskursprojekt18
+# FRONTEND
+
+Frontend for webshop project

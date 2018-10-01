@@ -15,7 +15,7 @@
 
 	<h1>HTML testpage</h1>
 	
-	<p>Lorem ipsum dolor sit amet...</p>
+	<?php echo "<p>Current PHP version: " . phpversion() . "</p>"; ?>
 	
 </body>
 </html>
