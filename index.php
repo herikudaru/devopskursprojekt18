@@ -14,8 +14,10 @@
 <body>
 
 	<h1>HTML testpage</h1>
-	
-	<?php echo "<p>Current PHP version: " . phpversion() . "</p>"; ?>
+	<div class="col-9"><p></p></div>
+	<div class="col-3">
+		<?php echo "<p>Current PHP version: " . phpversion() . "</p>"; ?>
+	</div>
 	
 </body>
 </html>
