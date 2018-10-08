@@ -1,6 +1,5 @@
 language: php
 php:
  - '7.1'
- - hhvm
- - nightly
-script: phpunit test.php
+ 
+ script: phpunit --configuration tests/phpunit.xml
