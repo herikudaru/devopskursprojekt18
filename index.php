@@ -67,6 +67,8 @@
 			</div>
 		</div>
 		<button>Filter</button>
+		<input type="text" name="search" value="search">
+		<button>Search</button>
 	</div>
 	
 	<div class="col-12" id="product-list">
