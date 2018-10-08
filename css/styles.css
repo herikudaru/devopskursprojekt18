@@ -7,6 +7,16 @@ body {
 	margin: auto;
 }
 
+#topbar {
+	margin: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border: 0.1em;
+	border-style: solid;
+	background-color: #f4d442;
+	text-align: right;
+}
+
 [class*="col-"] {
     float: left;
     padding: 0px;
@@ -27,3 +37,23 @@ body {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+	min-width: 7em;
+	cursor: pointer;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
