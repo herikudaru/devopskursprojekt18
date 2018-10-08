@@ -16,6 +16,11 @@ tr:nth-child(even) {
 	background-color: #dddddd;
 }
 
+h4 {
+	padding: 0;
+	margin: 0;
+}
+
 #content {
 	width: 100%;
 	margin: auto;
