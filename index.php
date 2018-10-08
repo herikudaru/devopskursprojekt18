@@ -16,7 +16,7 @@
 	<div class="col-12" id="topbar">
 		<div class="col-10"><h4>Shoe shop</h4></div>
 		<div class="col-2">
-			<button>Cart</button>
+			<button>Shopping Cart</button>
 			<button>Login</button>
 		</div>
 	</div>
