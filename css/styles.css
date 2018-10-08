@@ -14,7 +14,10 @@ body {
 	border: 0.1em;
 	border-style: solid;
 	background-color: #f4d442;
-	text-align: right;
+}
+
+#product-list {
+	
 }
 
 [class*="col-"] {
@@ -56,4 +59,5 @@ body {
 
 .dropdown:hover .dropdown-content {
 	display: block;
+	background-color: white;
 }
