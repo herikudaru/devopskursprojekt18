@@ -1,6 +1,6 @@
 language: php
 php:
- - '7.1'
+  - '7.1'
  
- script: 
+ script:
    - phpunit --configuration tests/phpunit.xml
