@@ -16,11 +16,6 @@ tr:nth-child(even) {
 	background-color: #dddddd;
 }
 
-h4 {
-	padding: 0;
-	margin: 0;
-}
-
 #content {
 	width: 100%;
 	margin: auto;
@@ -33,6 +28,19 @@ h4 {
 	border: 0.1em;
 	border-style: solid;
 	background-color: #f4d442;
+}
+
+#topbar h4 {
+	margin: 0;
+	padding: 0;
+	margin-left: 1em;
+}
+
+#topbar a, 
+#topbar a:hover, 
+#topbar a:visited {
+	color: inherit;
+	text-decoration: inherit;
 }
 
 #product-list {

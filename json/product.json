@@ -1,0 +1,11 @@
+[{
+   "id": 1,
+   "name": "Airmax",
+   "brand": "Nike",
+   "size": 42,
+   "color": "blue",
+   "description": "Very nice shoes",
+   "quantity": 1,
+   "price": 1000.00,
+   "gender": "male"
+}]

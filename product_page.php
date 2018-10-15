@@ -1,3 +1,8 @@
+<?php
+	$str = file_get_contents("./json/product.json");
+	$json = json_decode($str, true);
+?>
+
 <!doctype html>
 
 <html lang="en">
@@ -13,25 +18,19 @@
 
 <body>
 
-	<div class="col-12" id="topbar">
-		<div class="col-10"><h4>Shoe shop</h4></div>
-		<div class="col-2">
-			<button>Cart</button>
-			<button>Login</button>
-		</div>
-	</div>
+	<?php require 'topbar.php'; ?>
 	
 	<div class="col-12">
 		<?php 
-			echo "<h2>Product name</h2></br>";
-			echo "<h4>Brand</h4></br>";
+			echo "<h2>" . $json[0]['name'] . "</h2></br>";
+			echo "<h4>" . $json[0]['brand'] . "</h4></br>";
 		?>
 	</div>
 	
 	<div class="col-12">
 		<div class="col-6">
 			<?php
-				echo "<p>Product description.</p>";
+				echo "<p>" . $json[0]['description'] . "</p>";
 			?>
 		</div>
 		
@@ -45,12 +44,12 @@
 	<div class="col-12">
 		<div class="col-6">
 			<?php
-				echo "<p>[Product price]</p>";
+				echo "<p>" . $json[0]['price'] . "€</p>";
 			?>
 		</div>
 		<div class="col-6">
 			<?php
-				echo "<p>Availability.</p>";
+				echo "<p>Availability: " . $json[0]['quantity'] . "</p>";
 			?>
 		</div>
 	</div>

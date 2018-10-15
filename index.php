@@ -1,3 +1,8 @@
+<?php
+	$str = file_get_contents("./json/product.json");
+	$json = json_decode($str, true);
+?>
+
 <!doctype html>
 
 <html lang="en">
@@ -13,13 +18,8 @@
 
 <body>
 
-	<div class="col-12" id="topbar">
-		<div class="col-10"><h4>Shoe shop</h4></div>
-		<div class="col-2">
-			<button>Shopping Cart</button>
-			<button>Login</button>
-		</div>
-	</div>
+	<?php require 'topbar.php'; ?>
+	
 	<div class="col-12">
 		<div class="dropdown">
 			<button class="dropbtn">Gender</button>
@@ -81,6 +81,15 @@
 			</tr>
 			<?php
 				//populate the product list with php
+				for($i = 0; $i < 10; $i++)
+				{
+					echo "<tr>";
+					echo "<td><a href='product_page.php'><img src='https://via.placeholder.com/100x75'></a></td>";
+					echo "<td>" . $json[0]['name'] . "</td>";
+					echo "<td>" . $json[0]['brand'] . "</td>";
+					echo "<td>" . $json[0]['price'] . "</td>";
+					echo "</tr>";
+				}
 			?>
 		</table>
 	</div>
