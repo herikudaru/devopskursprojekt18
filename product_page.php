@@ -1,6 +1,16 @@
 <?php
+	$product_id = $_GET["productid"];
 	$str = file_get_contents("./json/product.json");
-	$json = json_decode($str, true);
+	$json_arr = json_decode($str, true);
+	$json_obj;
+	
+	for($i = 0; $i < count($json_arr); $i++)
+	{
+		if($json_arr[$i]['id'] == $product_id)
+		{
+			$json_obj = $json_arr[$i];
+		}
+	}
 ?>
 
 <!doctype html>
@@ -22,15 +32,15 @@
 	
 	<div class="col-12">
 		<?php 
-			echo "<h2>" . $json[0]['name'] . "</h2></br>";
-			echo "<h4>" . $json[0]['brand'] . "</h4></br>";
+			echo "<h2>" . $json_obj['name'] . "</h2></br>";
+			echo "<h4>" . $json_obj['brand'] . "</h4></br>";
 		?>
 	</div>
 	
 	<div class="col-12">
 		<div class="col-6">
 			<?php
-				echo "<p>" . $json[0]['description'] . "</p>";
+				echo "<p>" . $json_obj['description'] . "</p>";
 			?>
 		</div>
 		
@@ -44,12 +54,12 @@
 	<div class="col-12">
 		<div class="col-6">
 			<?php
-				echo "<p>" . $json[0]['price'] . "€</p>";
+				echo "<p>" . $json_obj['price'] . "€</p>";
 			?>
 		</div>
 		<div class="col-6">
 			<?php
-				echo "<p>Availability: " . $json[0]['quantity'] . "</p>";
+				echo "<p>Availability: " . $json_obj['quantity'] . "</p>";
 			?>
 		</div>
 	</div>
