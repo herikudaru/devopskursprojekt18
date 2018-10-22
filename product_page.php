@@ -1,16 +1,7 @@
 <?php
 	$product_id = $_GET["productid"];
-	$str = file_get_contents("./json/product.json");
-	$json_arr = json_decode($str, true);
-	$json_obj;
-	
-	for($i = 0; $i < count($json_arr); $i++)
-	{
-		if($json_arr[$i]['id'] == $product_id)
-		{
-			$json_obj = $json_arr[$i];
-		}
-	}
+	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/product/" . $product_id);
+	$json_obj = json_decode($str, true);
 ?>
 
 <!doctype html>
