@@ -8,4 +8,37 @@
    "quantity": 1,
    "price": 1000.00,
    "gender": "male"
+},
+{
+   "id": 2,
+   "name": "Earthmax",
+   "brand": "Nike",
+   "size": 42,
+   "color": "blue",
+   "description": "Very nice shoes",
+   "quantity": 1,
+   "price": 1000.00,
+   "gender": "male"
+},
+{
+   "id": 3,
+   "name": "Watermax",
+   "brand": "Nike",
+   "size": 42,
+   "color": "blue",
+   "description": "Very nice shoes",
+   "quantity": 1,
+   "price": 1000.00,
+   "gender": "male"
+},
+{
+   "id": 4,
+   "name": "Firemax",
+   "brand": "Nike",
+   "size": 42,
+   "color": "blue",
+   "description": "Very nice shoes",
+   "quantity": 1,
+   "price": 1000.00,
+   "gender": "male"
 }]

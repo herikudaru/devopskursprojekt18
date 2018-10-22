@@ -1,5 +1,5 @@
 <?php
-	$str = file_get_contents("./json/product.json");
+	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/products");
 	$json = json_decode($str, true);
 ?>
 
@@ -74,20 +74,22 @@
 	<div class="col-12" id="product-list">
 		<table>
 			<tr>
-				<th>Image</th>
 				<th>Name</th>
 				<th>Brand</th>
 				<th>Price</th>
+				<th>Color</th>
+				<th>Gender</th>
 			</tr>
 			<?php
 				//populate the product list with php
-				for($i = 0; $i < 10; $i++)
+				for($i = 0; $i < count($json); $i++)
 				{
 					echo "<tr>";
-					echo "<td><a href='product_page.php'><img src='https://via.placeholder.com/100x75'></a></td>";
-					echo "<td>" . $json[0]['name'] . "</td>";
-					echo "<td>" . $json[0]['brand'] . "</td>";
-					echo "<td>" . $json[0]['price'] . "</td>";
+					echo "<td><a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></td>";
+					echo "<td>" . $json[$i]['brand'] . "</td>";
+					echo "<td>" . $json[$i]['price'] . "</td>";
+					echo "<td>" . $json[$i]['color'] . "</td>";
+					echo "<td>" . $json[$i]['sex'] . "</td>";
 					echo "</tr>";
 				}
 			?>
