@@ -28,31 +28,20 @@
 		?>
 	</div>
 	
-	<div class="col-12">
-		<div class="col-6">
-			<?php
-				echo "<p>" . $json_obj['description'] . "</p>";
-			?>
-		</div>
-		
-		<div class="col-6">
-			<?php
-				echo "<a href='https://placeholder.com'><img src='https://via.placeholder.com/350x150'></a>";
-			?>
-		</div>
+	<div class="col-6">
+		<?php
+			echo "<p>Description: " . $json_obj['description'] . "</p>";
+			echo "<p>Sex: " . $json_obj['sex'] . "</p>";
+			echo "<p>Size: " . $json_obj['size'] . "</p>";
+			echo "<p>Color: " . $json_obj['color'] . "</p>";
+			echo "<p>Price: " . $json_obj['price'] . "€</p>";
+		?>
 	</div>
-	
-	<div class="col-12">
-		<div class="col-6">
-			<?php
-				echo "<p>" . $json_obj['price'] . "€</p>";
-			?>
-		</div>
-		<div class="col-6">
-			<?php
-				echo "<p>Availability: " . $json_obj['quantity'] . "</p>";
-			?>
-		</div>
+
+	<div class="col-6">
+		<?php
+			echo "<a href='https://placeholder.com'><img src='https://via.placeholder.com/350x150'></a>";
+		?>
 	</div>
 	
 </body>
