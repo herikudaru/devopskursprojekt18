@@ -27,16 +27,19 @@
 			</tr>
 			<?php
 				$totalAmount = 0;
-				if (!$jsonCart == null){
-					for($i = 0; $i < count($jsonCart); $i++)
-					{
-						echo "<tr>";
-						echo "<td><a href='product_page.php?productid=" . $jsonCart[$i]['id'] . "'>" . $jsonCart[$i]['name'] . "</a></td>";
-						echo "<td><div class='col-9'>" . $jsonCart[$i]['price'] . "</div>";
-						echo "<div class='col-1'><button name='removeobj".$jsonCart[$i]['id']."' class='btn'><i class='far fa-trash-alt'></i></button></div></td>";//missing remove function
-						echo "<div class='col-2'><p></p></div>";
-						echo "</tr>";
-						$totalAmount = $totalAmount + $jsonCart[$i]['price'];
+				if (!empty($_SESSION['shopping_cart'])){
+					for ($j = 0;$j<count($_SESSION['shopping_cart']);$j++){
+								for ($i = 0;$i<count($json_obj);$i++){
+									if($json_obj[$i]['id'] === $_SESSION['shopping_cart'][$j]){
+										echo "<tr>";
+										echo "<td><a href='product_page.php?productid=" . $json_obj[$i]['id'] . "'>" .$json_obj[$i]['name'] . "</a></td>";
+										echo "<td><div class='col-9'>" . $json_obj[$i]['price'] . "</div>";
+										echo "<div class='col-1'><button name='removeobj".$j."' class='btn'><i class='far fa-trash-alt'></i></button></div></td>";//missing remove function
+										echo "<div class='col-2'><p></p></div>";
+										echo "</tr>";
+										$totalAmount = $totalAmount + $json_obj[$i]['price'];
+									}
+								}
 					}
 				}else {echo"<td>Shopping cart</td><td>is empty!</td></br>";}
 				echo "<tr>";

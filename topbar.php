@@ -1,7 +1,12 @@
 <?php
 	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/products");
-	$jsonCart = json_decode($str, true);
-	//$jsonCart = null;
+	$json_obj = json_decode($str, true);
+	session_start();
+	if(isset($_SESSION['shopping_cart'])){
+	
+	}else {
+		$_SESSION['shopping_cart'] = array();
+	}
 ?>
 
 <div class="col-12" id="topbar">
@@ -13,17 +18,19 @@
 				<button class="dropbtn">Cart</button>
 					<div class="dropdown-content" style="width:200%">
 						<?php
+							$_SESSION['shopping_cart'] = array(3,2);
 							$totalAmount = 0;
-							if (!$jsonCart == null){
-								for($i = 0;$i<count($jsonCart);$i++){
+							if (!empty($_SESSION['shopping_cart'])){
+							for ($j = 0;$j<count($_SESSION['shopping_cart']);$j++){
+								for ($i = 0;$i<count($json_obj);$i++){
+									if($json_obj[$i]['id'] === $_SESSION['shopping_cart'][$j]){
 									echo "<td><div class='col-9'>";
-									echo "<a href='product_page.php?productid=" . $jsonCart[$i]['id'] . "'>" . $jsonCart[$i]['name'] . "</a></div>";
-									echo "<div class='col-1'><button class=btntopbar name='remove_obj".$jsonCart[$i]['id']."'><i class='far fa-trash-alt'></i></button></div></td>";//missing remove function
+									echo "<a href='product_page.php?productid=" . $json_obj[$i]['id'] . "'>" . $json_obj[$i]['name'] . "</a></div>";
+									echo "<div class='col-1'><button class=btntopbar name='remove_obj".$j."'><i class='far fa-trash-alt'></i></button></div></td>";//missing remove function
 									echo "<div class='col-2'><p></p></div>";
-						
-						
-									$totalAmount = $totalAmount + $jsonCart[$i]['price'];
+									}
 								}
+							}
 							}else {echo"<td>Shopping cart</br>is empty!</td></br>";}
 
 							echo "<td>TOTAL: ".$totalAmount."e</td></br>";

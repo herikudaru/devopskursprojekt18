@@ -90,7 +90,7 @@ tr:nth-child(even) {
 	background-color: white;
 }
 .btn {
-    background-color: orange;
+    background-color: darkgray;
     border: none;
     color: darkslategray;
     padding: 10px 14px;
@@ -99,11 +99,11 @@ tr:nth-child(even) {
 }
 
 .btn:hover {
-    background-color: darkorange;
+    background-color: yellow;
     color: black;
 }
-btntopbar {
-    background-color: orange;
+.btntopbar {
+    background-color: darkgray;
     border: none;
     color: darkslategray;
     padding: 6px 10px;
@@ -112,6 +112,6 @@ btntopbar {
 }
 
 .btntopbar:hover {
-    background-color: darkorange;
+    background-color: yellow;
     color: black;
 }
