@@ -2,6 +2,7 @@
 	$product_id = $_GET["productid"];
 	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/product/" . $product_id);
 	$json_obj = json_decode($str, true);
+	
 ?>
 
 <!doctype html>
@@ -37,6 +38,17 @@
 			echo "<p>Size: " . $json_obj['size'] . "</p>";
 			echo "<p>Color: " . $json_obj['color'] . "</p>";
 			echo "<p>Price: " . $json_obj['price'] . "€</p>";
+		
+			echo "<form method='post'>";
+			echo "<input type='submit' name='add' value='Add to cart'>";
+			
+				if (isset($_POST['add']))
+				{
+					array_push($_SESSION['shopping_cart'],$json_obj['id']);
+					header("Refresh:0");
+				}
+			
+			echo "</form>";
 		?>
 	</div>
 

@@ -1,6 +1,6 @@
 <?php
 	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/products");
-	$json_obj = json_decode($str, true);
+	$json = json_decode($str, true);
 	session_start();
 	if(isset($_SESSION['shopping_cart'])){
 	
@@ -18,16 +18,15 @@
 				<button class="dropbtn">Cart</button>
 					<div class="dropdown-content" style="width:200%">
 						<?php
-							$_SESSION['shopping_cart'] = array(3,2);
+							
 							$totalAmount = 0;
 							if (!empty($_SESSION['shopping_cart'])){
 							for ($j = 0;$j<count($_SESSION['shopping_cart']);$j++){
-								for ($i = 0;$i<count($json_obj);$i++){
-									if($json_obj[$i]['id'] === $_SESSION['shopping_cart'][$j]){
+								for ($i = 0;$i<count($json);$i++){
+									if($json[$i]['id'] === $_SESSION['shopping_cart'][$j]){
 									echo "<td><div class='col-9'>";
-									echo "<a href='product_page.php?productid=" . $json_obj[$i]['id'] . "'>" . $json_obj[$i]['name'] . "</a></div>";
-									echo "<div class='col-1'><button class=btntopbar name='remove_obj".$j."'><i class='far fa-trash-alt'></i></button></div></td>";//missing remove function
-									echo "<div class='col-2'><p></p></div>";
+									echo "<a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></div>";
+									echo "</td>";
 									}
 								}
 							}
@@ -36,11 +35,16 @@
 							echo "<td>TOTAL: ".$totalAmount."e</td></br>";
 						?>
 						
-						<input type=button class=btntopbar onClick="location.href='shopping_cart.php'" value="To Cart"><button class=btntopbar name="remove_all">Remove all</button></br><!-- missing function -->
-						<button class=btntopbar >CHECKOUT</button></br><!-- missing function -->
+						<div class="col-6"><input  style="width:100%" type=button class=btntopbar onClick="location.href='shopping_cart.php'" value="To Cart"></div><form method="post"><div class="col-6"><button type="submit" style="width:100%" class=btntopbar name="remove_all">Remove all</button></div></br><!-- missing function -->
+						<button class=btntopbar style="width:100%">CHECKOUT</button></br><!-- missing function -->
 						<?php 
-							//remove_all and checkout functions here
+							if(isset($_POST['remove_all'])){
+								unset($_SESSION['shopping_cart']);
+								$_SESSION['shopping_cart'] = array();
+								header("Refresh:0");
+							}
 						?>
+						</form>
 					</div>
 			</div>
 		

@@ -27,17 +27,26 @@
 			</tr>
 			<?php
 				$totalAmount = 0;
+				
 				if (!empty($_SESSION['shopping_cart'])){
-					for ($j = 0;$j<count($_SESSION['shopping_cart']);$j++){
-								for ($i = 0;$i<count($json_obj);$i++){
-									if($json_obj[$i]['id'] === $_SESSION['shopping_cart'][$j]){
+					for ($j = 0;$j<sizeof($_SESSION['shopping_cart']);$j++){
+								for ($i = 0;$i<sizeof($json);$i++){
+									if($json[$i]['id'] === $_SESSION['shopping_cart'][$j]){
 										echo "<tr>";
-										echo "<td><a href='product_page.php?productid=" . $json_obj[$i]['id'] . "'>" .$json_obj[$i]['name'] . "</a></td>";
-										echo "<td><div class='col-9'>" . $json_obj[$i]['price'] . "</div>";
-										echo "<div class='col-1'><button name='removeobj".$j."' class='btn'><i class='far fa-trash-alt'></i></button></div></td>";//missing remove function
+										echo "<td><a href='product_page.php?productid=" . $json[$i]['id'] . "'>" .$json[$i]['name'] . "</a></td>";
+										echo "<td><div class='col-9'>" . $json[$i]['price'] . "</div>";
+										echo "<div class='col-1'><form method='post'><button type='submit' name='remove_obj".$j."' class='btn'><i class='far fa-trash-alt'></i></button>";
+										$removable_obj = "remove_obj".$j;
+										if (isset($_POST[$removable_obj])){
+											unset($_SESSION['shopping_cart'][$j]);
+											$temp_array = array_values($_SESSION['shopping_cart']);
+											$_SESSION['shopping_cart']=$temp_array;
+											header("Refresh:0");
+										}
+										echo "</form></div></td>";
 										echo "<div class='col-2'><p></p></div>";
 										echo "</tr>";
-										$totalAmount = $totalAmount + $json_obj[$i]['price'];
+										$totalAmount = $totalAmount + $json[$i]['price'];
 									}
 								}
 					}
@@ -46,11 +55,21 @@
 				echo "<th>TOTAL:</th><th>".$totalAmount."e</th></tr>";
 			?>
 			<tr>
-				<td><button name="remove_all" class="btn" style="width:100%;height100%;"><i class="far fa-trash-alt"></i>REMOVE ALL</button></td><!-- missing function -->
-				<td><button name="checkout" class="btn" style="width:100%;height100%;"><i class="fas fa-arrow-alt-circle-right"></i>CHECKOUT</button></td><!-- missing function -->
+				<form method="post">
+				<td><button type="submit" name="remove_all" class="btn" style="width:100%;height100%;"><i class="far fa-trash-alt"></i>Remove all</button></td>
+				<td><button type="submit" name="checkout" class="btn" style="width:100%;height100%;"><i class="fas fa-arrow-alt-circle-right"></i>Checkout</button></td>
 				<?php 
-							//remove_all and checkout functions here
+					if(isset($_POST['remove_all'])){
+						unset($_SESSION['shopping_cart']);
+						$_SESSION['shopping_cart'] = array();
+						header("Refresh:0");
+					}
+					if(isset($_POST['checkout'])){
+						//checkout logic if wanted
+					}
 				?>
+				</form>
+				
 			</tr>
 
 			
