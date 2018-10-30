@@ -42,6 +42,7 @@
 											$temp_array = array_values($_SESSION['shopping_cart']);
 											$_SESSION['shopping_cart']=$temp_array;
 											header("Refresh:0");
+											break;
 										}
 										echo "</form></div></td>";
 										echo "<div class='col-2'><p></p></div>";
