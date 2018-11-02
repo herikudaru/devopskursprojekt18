@@ -36,12 +36,16 @@
 						?>
 						
 						<div class="col-6"><input  style="width:100%" type=button class=btntopbar onClick="location.href='shopping_cart.php'" value="To Cart"></div><form method="post"><div class="col-6"><button type="submit" style="width:100%" class=btntopbar name="remove_all">Remove all</button></div></br><!-- missing function -->
-						<button class=btntopbar style="width:100%">CHECKOUT</button></br><!-- missing function -->
+						<button type="submit" name="checkout" class=btntopbar style="width:100%">CHECKOUT</button></br>
 						<?php 
 							if(isset($_POST['remove_all'])){
 								unset($_SESSION['shopping_cart']);
 								$_SESSION['shopping_cart'] = array();
 								header("Refresh:0");
+							}
+							if(isset($_POST['checkout'])){
+								$_SESSION['new_order'] = $_SESSION['shopping_cart'];
+								header("location:orders.php");
 							}
 						?>
 						</form>

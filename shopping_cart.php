@@ -66,7 +66,8 @@
 						header("Refresh:0");
 					}
 					if(isset($_POST['checkout'])){
-						//checkout logic if wanted
+						$_SESSION['new_order'] = $_SESSION['shopping_cart'];
+						header("location:orders.php");
 					}
 				?>
 				</form>
