@@ -24,17 +24,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <form id="register_form" action="https://webshop-userdb-api.herokuapp.com/Users/register" method="post">
-  <input type="text" placeholder="Name" name="name" title="Up to 20 alphabetical characters">
+  <input type="email" placeholder="Email" name="email" title="Up to 20 alphabetical characters">
   <br>
-  <input type="email" placeholder="Email" name="email" title="Must be a valid email address">
+  <input type="text" placeholder="Name" name="name" title="Must be a valid email address">
   <br>
   <input type="password" placeholder="Password" name="password" title="Must be 8 or more characters long and contain at least one number and one uppercase letter">
   <br>
-  <input type="text" placeholder="Homeadress" name="homeadress">
+  <input type="text" placeholder="Homeadress" name="adress">
   <br>
-  <input type="text" placeholder="Postnumber" name="postnumber">
+  <input type="text" placeholder="Postnumber" name="postnummer">
   <br>
-  <input type="text" placeholder="City" name="city">
+  <input type="text" placeholder="City" name="stad">
   <br>
   <button value="Submit" type="submit">Register</button>
 </form>
