@@ -5,5 +5,7 @@
 	<div class="col-2">
 		<button>Cart</button>
 		<button>Login</button>
+		<button>Register</button>
+		<button>Account</button>
 	</div>
 </div>

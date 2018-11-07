@@ -1,4 +1,5 @@
 <?php
+	require 'functions.php';
 	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/products");
 	$json = json_decode($str, true);
 ?>
@@ -6,15 +7,8 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-	<meta charset="utf-8">
 
-	<title>HTML testpage</title>
-	
-	<meta name="description" content="testpage">
-
-	<link rel="stylesheet" href="css/styles.css">
-</head>
+	<?php require 'head.php'; ?>
 
 <body>
 

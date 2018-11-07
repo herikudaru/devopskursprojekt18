@@ -1,19 +1,12 @@
+<?php
+	require 'functions.php';
+?>
+
 <!doctype html>
 
 <html lang="en">
-<head>
-	<meta charset="utf-8">
 
-	<title>HTML testpage</title>
-	
-	<meta name="description" content="testpage">
-
-	<link rel="stylesheet" href="css/styles.css">    
-	
-	<link rel="shortcut icon" href="#" />
-	
-</head>
-
+	<?php require 'head.php'; ?>
 
 <body>
 

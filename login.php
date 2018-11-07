@@ -1,29 +1,32 @@
-
+<?php
+	require 'functions.php';
+?>
 <!doctype html>
 
 <html lang="en">
-<head>
-	<meta charset="utf-8">
 
-	<title>HTML testpage</title>
-	
-	<meta name="description" content="testpage">
-
-	<link rel="stylesheet" href="css/styles.css">
-</head>
+	<?php require 'head.php'; ?>
 
 <body>
 
 	<?php require 'topbar.php'; ?>
 	
-	<form>
-  Email:<br>
-  <input type="text" name="email"><br>
-  Password:<br>
-  <input type="text" name="password">
-  <br>
-  <button type="button">Login</button> <button type="button">Register</button> 
-</form>
+	<form method="post" action="login.php">
+		Email:<br>
+		<input type="email" name="email"><br>
+		Password:<br>
+		<input type="password" name="password">
+		<br>
+		<input type="submit" value="Login" name="submit">
+	</form>
+
+<?php
+	if (isset($_POST['submit']))
+	{
+		auth_login($_POST['email'], $_POST['password']);
+		echo $_POST['email'];
+	}
+?>
 	
 </body>
 </html>
