@@ -8,7 +8,7 @@
 		return (json_last_error() == JSON_ERROR_NONE);
 	}
 	
-	function auth_login($email, $password)
+	function user_login($email, $password)
 	{
 		$data = array("email" => $email, "password" => $password);
 		$data_string = json_encode($data);
@@ -29,8 +29,8 @@
 		if (isset($login_json_response['x_auth_token']))
 		{
 			$_SESSION['x-auth-token'] = $login_json_response['x_auth_token'];
-			print_r($_SESSION);	
-			
+			get_user_info();
+			header("Rfresh:0");
 		}
 		else if (isset($login_json_response['message']))
 		{
@@ -40,5 +40,30 @@
 		{
 			echo "<script type='text/javascript'>alert('Something went wrong.');</script>";
 		}
+	}
+	
+	function get_user_info()
+	{
+		$curl_h = curl_init('https://webshop-userdb-api.herokuapp.com/Users/user');
+
+		curl_setopt($curl_h, CURLOPT_HTTPHEADER,
+			array(
+				'authtoken: ' . $_SESSION['x-auth-token'],
+			)
+		);
+
+		# do not output, but store to variable
+		curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($curl_h);
+		$user_info_json = json_decode($response, true);
+		$_SESSION['user_info'] = $user_info_json;
+	}
+	
+	function user_logout()
+	{
+		unset($_SESSION['x-auth-token']);
+		unset($_SESSION['user_info']);
+		header("Refresh:0");
 	}
 ?>

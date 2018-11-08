@@ -17,13 +17,13 @@
 		Password:<br>
 		<input type="password" name="password">
 		<br>
-		<input type="submit" value="Login" name="submit">
+		<input type="submit" value="Login" name="login">
 	</form>
 
 <?php
-	if (isset($_POST['submit']))
+	if (isset($_POST['login']))
 	{
-		auth_login($_POST['email'], $_POST['password']);
+		user_login($_POST['email'], $_POST['password']);
 		echo $_POST['email'];
 	}
 ?>
