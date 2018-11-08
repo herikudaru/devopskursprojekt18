@@ -30,7 +30,7 @@
 		{
 			$_SESSION['x-auth-token'] = $login_json_response['x_auth_token'];
 			get_user_info();
-			header("Rfresh:0");
+			header("Refresh:0; url=account.php");
 		}
 		else if (isset($login_json_response['message']))
 		{

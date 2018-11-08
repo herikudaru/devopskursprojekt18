@@ -1,6 +1,6 @@
 <?php
 	require 'functions.php';
-	$str = file_get_contents("https://arcada-18-api.herokuapp.com/api/products");
+	$str = file_get_contents("https://productsdb-devops-arcada-2018.herokuapp.com/api/products");
 	$json = json_decode($str, true);
 ?>
 
@@ -73,6 +73,7 @@
 				<th>Price</th>
 				<th>Color</th>
 				<th>Gender</th>
+				<th>Size</th>
 			</tr>
 			<?php
 				//populate the product list with php
@@ -83,7 +84,8 @@
 					echo "<td>" . $json[$i]['brand'] . "</td>";
 					echo "<td>" . $json[$i]['price'] . "</td>";
 					echo "<td>" . $json[$i]['color'] . "</td>";
-					echo "<td>" . $json[$i]['sex'] . "</td>";
+					echo "<td>" . $json[$i]['gender'] . "</td>";
+					echo "<td>" . $json[$i]['size'] . "</td>";
 					echo "</tr>";
 				}
 			?>
