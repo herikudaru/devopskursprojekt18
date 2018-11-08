@@ -24,7 +24,6 @@
 	if (isset($_POST['login']))
 	{
 		user_login($_POST['email'], $_POST['password']);
-		echo $_POST['email'];
 	}
 ?>
 	
