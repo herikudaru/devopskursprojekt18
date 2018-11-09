@@ -51,8 +51,6 @@
 				'authtoken: ' . $_SESSION['x-auth-token'],
 			)
 		);
-
-		# do not output, but store to variable
 		curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
 
 		$response = curl_exec($curl_h);

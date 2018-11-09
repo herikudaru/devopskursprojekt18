@@ -1,7 +1,5 @@
 <?php
 	require 'functions.php';
-	$str = file_get_contents("https://productsdb-devops-arcada-2018.herokuapp.com/api/products");
-	$json = json_decode($str, true);
 ?>
 
 <!doctype html>
@@ -72,11 +70,10 @@
 				<th>Brand</th>
 				<th>Price</th>
 				<th>Color</th>
-				<th>Gender</th>
+				<th>Sex</th>
 				<th>Size</th>
 			</tr>
 			<?php
-				//populate the product list with php
 				for($i = 0; $i < count($json); $i++)
 				{
 					echo "<tr>";
