@@ -47,6 +47,7 @@ tr:nth-child(even) {
 	
 }
 
+
 [class*="col-"] {
     float: left;
     padding: 0px;
@@ -87,4 +88,30 @@ tr:nth-child(even) {
 .dropdown:hover .dropdown-content {
 	display: block;
 	background-color: white;
+}
+.btn {
+    background-color: darkgray;
+    border: none;
+    color: darkslategray;
+    padding: 10px 14px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: yellow;
+    color: black;
+}
+.btntopbar {
+    background-color: darkgray;
+    border: none;
+    color: darkslategray;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btntopbar:hover {
+    background-color: yellow;
+    color: black;
 }
