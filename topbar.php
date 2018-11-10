@@ -57,7 +57,7 @@
 								<button class="dropbtn">Account</button>
 									<div class="dropdown-content" style="width:200%;right:0%">
 											<a href="account.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign"></i>&ensp;Account</button></a></br>
-											<form method="post" action="#"><input type="submit" value="Logout" name="logout" class=btntopbar style="width:100%"></form></br>
+											<form method="post" action="#"><button type="submit" value="Logout" name="logout" class=btntopbar style="width:100%"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</button></form></br>
 									</div>
 							</div>';
 				}
