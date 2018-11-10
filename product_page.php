@@ -36,7 +36,7 @@
 			
 				if (isset($_POST['add']))
 				{
-					array_push($_SESSION['shopping_cart'],$json_obj['id']);
+					array_push($_SESSION['shopping_cart'],$json_obj[0]['id']);
 					header("Refresh:0");
 				}
 			

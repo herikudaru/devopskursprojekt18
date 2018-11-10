@@ -1,18 +1,11 @@
-
+<?php
+require 'functions.php';
+?>
 <!doctype html>
 
 <html lang="en">
-<head>
-	<meta charset="utf-8">
 
-	<title>HTML testpage</title>
-	
-	<meta name="description" content="testpage">
-
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
-	<link rel="stylesheet" href="css/styles.css">
-</head>
+<?php require 'head.php'; ?>
 
 <body>
 
@@ -42,6 +35,7 @@
 											$temp_array = array_values($_SESSION['shopping_cart']);
 											$_SESSION['shopping_cart']=$temp_array;
 											header("Refresh:0");
+											break;
 										}
 										echo "</form></div></td>";
 										echo "<div class='col-2'><p></p></div>";
@@ -65,7 +59,7 @@
 						header("Refresh:0");
 					}
 					if(isset($_POST['checkout'])){
-						//checkout logic if wanted
+						
 					}
 				?>
 				</form>

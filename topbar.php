@@ -26,6 +26,7 @@
 									echo "<td><div class='col-9'>";
 									echo "<a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></div>";
 									echo "</td>";
+									$totalAmount = $totalAmount + $json[$i]['price'];
 									}
 								}
 							}
@@ -36,7 +37,7 @@
 						
 						<div class="col-6"><input  style="width:100%" type=button class=btntopbar onClick="location.href='shopping_cart.php'" value="To Cart"></div>
 						<form method="post">
-						<div class="col-6"><button type="submit" style="width:100%" class=btntopbar name="remove_all">Remove all</button></div></br><!-- missing function -->
+						<div class="col-6"><button type="submit" style="width:100%" class=btntopbar name="remove_all">Remove all</button></div></br>
 						<button class=btntopbar style="width:100%">CHECKOUT</button></br><!-- missing function -->
 						<?php 
 							if(isset($_POST['remove_all'])){
