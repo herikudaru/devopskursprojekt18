@@ -2,16 +2,21 @@
 	<div class="dropdown">
 		<button class="dropbtn">Gender</button>
 		<div class="dropdown-content">
-			<input type="radio" name="sex" value="all" checked="checked">All</br>
-			<input type="radio" name="sex" value="female">Female</br>
-			<input type="radio" name="sex" value="male">Male</br>
+			<input type="radio" name="gender" value="all" checked="checked">All</br>
+			<input type="radio" name="gender" value="female">Female</br>
+			<input type="radio" name="gender" value="male">Male</br>
 		</div>
 	</div>
 	<div class="dropdown">
 		<button class="dropbtn">Size</button>
 		<div class="dropdown-content">
-			<input type="text" name="size-beginning" value="0">
-			<input type="text" name="size-ending" value="100">
+			<input type="radio" name="size" value="0">all</br>
+			<input type="radio" name="size" value="1">1</br>
+			<input type="radio" name="size" value="2">2</br>
+			<input type="radio" name="size" value="3">3</br>
+			<input type="radio" name="size" value="4">4</br>
+			<input type="radio" name="size" value="5">5</br>
+			<input type="radio" name="size" value="6">6</br>
 		</div>
 	</div>
 	<div class="dropdown">
@@ -25,19 +30,9 @@
 		<button class="dropbtn">Color</button>
 		<div class="dropdown-content">
 			<input type="radio" name="color" value="all" checked="checked">All</br>
-			<?php
-				for($i = 0; $i < count($json); $i++)
-				{
-					if(array_search($json[$i]['color'], $colors) === false)
-					{
-						array_push($colors, $json[$i]['color']);
-					}
-				}
-				for($i = 0; $i < count($colors); $i++)
-				{
-					echo "<input type='radio' name='color' value='" . $colors[$i] . "'>" . $colors[$i] . "</br>";
-				}
-			?>
+			<input type="radio" name="color" value="red">Red</br>
+			<input type="radio" name="color" value="green">Green</br>
+			<input type="radio" name="color" value="blue">Blue</br>
 		</div>
 	</div>
 	<div class="dropdown">
@@ -49,6 +44,7 @@
 			<input type="radio" name="stores" value="z">Z</br>
 		</div>
 	</div>
-	<input type="text" name="search" value="" placeholder="Search by name..">
 	<button>Filter</button>
+	<input type="text" name="search" value="search">
+	<button>Search</button>
 </div>
