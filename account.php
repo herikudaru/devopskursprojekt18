@@ -21,6 +21,7 @@
 			echo "<p>Address: " . $_SESSION['user_info']['adress'] . "</p>";
 			echo "<p>City: " . $_SESSION['user_info']['stad'] . "</p>";
 			echo "<p>Zip/Postal code: " . $_SESSION['user_info']['postnummer'] . "</p>";
+			echo '<p><a href="orders.php"><button class=btntopbar style="width:10%"><i class="fas fa-sign"></i>&ensp;My orders</button></a></p>';
 			echo "</div>";
 		}
 		else

@@ -64,4 +64,41 @@
 		unset($_SESSION['user_info']);
 		header("Refresh:0");
 	}
+	function checkout_cart()
+	{	$str = file_get_contents("https://productsdb-devops-arcada-2018.herokuapp.com/api/products");
+		$json = json_decode($str, true);
+		$totalAmount = 0;
+		
+		if (!isset($_SESSION['orders'])){
+		$_SESSION['orders'] = array();
+		$_SESSION['ordernumber'] = 0;}
+		$used_ids = array();
+		$new_order = array();
+		if (!empty($_SESSION['shopping_cart'])){
+					for ($j = 0;$j<sizeof($_SESSION['shopping_cart']);$j++){
+								for ($i = 0;$i<sizeof($json);$i++){
+									if($json[$i]['id'] === $_SESSION['shopping_cart'][$j]){
+										$totalAmount = $totalAmount + $json[$i]['price'];
+										
+									}
+								}
+					}
+					for ($k = 0; $k<sizeof($_SESSION['orders'] );$k++){
+						array_push($used_ids,$_SESSION['orders'][$k][2]);
+						if ($_SESSION['ordernumber'] == $_SESSION['orders'] [$k][2]){
+							for ($l = 0; $l<sizeof($used_ids);$l++){
+								$_SESSION['ordernumber'] = $used_ids[$l]+1;
+								}
+						}
+					}
+					
+					$new_order = array($_SESSION['shopping_cart'],$totalAmount,$_SESSION['ordernumber']);
+					array_push($_SESSION['orders'] ,$new_order);
+					echo $_SESSION['ordernumber'];
+		}
+
+		unset($_SESSION['shopping_cart']);
+		$_SESSION['shopping_cart'] = array();
+		header("Location:orders.php");
+	}
 ?>

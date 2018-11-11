@@ -6,6 +6,11 @@
 	}else {
 		$_SESSION['shopping_cart'] = array();
 	}
+	if(isset($_SESSION['orders'])){
+	
+	}else {
+		$_SESSION['orders'] = array();
+	}
 ?>
 
 <div class="col-12" id="topbar">
@@ -35,15 +40,18 @@
 							echo "<td>TOTAL: ".$totalAmount."e</td></br>";
 						?>
 						
-						<div class="col-6"><input  style="width:100%" type=button class=btntopbar onClick="location.href='shopping_cart.php'" value="To Cart"></div>
+						<div class="col-6"><button style="width:100%" type=submit class=btntopbar onClick="location.href='shopping_cart.php'"><i class="fas fa-shopping-cart"></i>To Cart</button></div>
 						<form method="post">
-						<div class="col-6"><button type="submit" style="width:100%" class=btntopbar name="remove_all">Remove all</button></div></br>
-						<button class=btntopbar style="width:100%">CHECKOUT</button></br><!-- missing function -->
+						<div class="col-6"><button type="submit" style="width:100%" class=btntopbar name="remove_all"><i class='far fa-trash-alt'></i></i>Remove all</button></div></br>
+						<button button type="submit" name="checkout" class=btntopbar style="width:100%"><i class="fas fa-arrow-alt-circle-right"></i>CHECKOUT</button></br><!-- missing function -->
 						<?php 
 							if(isset($_POST['remove_all'])){
 								unset($_SESSION['shopping_cart']);
 								$_SESSION['shopping_cart'] = array();
 								header("Refresh:0");
+							}
+							if(isset($_POST['checkout'])){
+								checkout_cart();
 							}
 						?>
 						</form>

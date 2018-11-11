@@ -59,7 +59,7 @@ require 'functions.php';
 						header("Refresh:0");
 					}
 					if(isset($_POST['checkout'])){
-						
+						checkout_cart();
 					}
 				?>
 				</form>
