@@ -3,7 +3,7 @@
 	$product_id = $_GET["productid"];
 	$product_str = file_get_contents("https://productsdb-devops-arcada-2018.herokuapp.com/api/product/" . $product_id);
 	$product_json_obj = json_decode($product_str, true);
-	$stores_str = file_get_contents("https://arcada-18-api.herokuapp.com/api/stores");
+	$stores_str = file_get_contents("https://devopstoresapp.herokuapp.com/api/stores");
 	$stores_json_obj = json_decode($stores_str, true);
 ?>
 
@@ -47,15 +47,15 @@
 
 	<div class="col-6">
 		<?php
+			$inventory_str = file_get_contents("https://devopstoresapp.herokuapp.com/api/inventories/stores");
+			$inventory_json_obj = json_decode($inventory_str, true);
 			echo "<h4>Availability:</h4>";
 			for($i = 0; $i < count($stores_json_obj); $i++)
 			{
-				$inventory_str = file_get_contents("https://arcada-18-api.herokuapp.com/api/inventories/" . $stores_json_obj[$i]['storeId']);
-				$inventory_json_obj = json_decode($inventory_str, true);
 				echo "<p>" . $stores_json_obj[$i]['storeName'] . ": ";
 				for($j = 0; $j < count($inventory_json_obj); $j++)
 				{
-					if((string)$inventory_json_obj[$j]['prodId'] === $product_id)
+					if((string)$inventory_json_obj[$j]['prodId'] === $product_id && $stores_json_obj[$i]['storeId'] === $inventory_json_obj[$j]['storeId'])
 					{
 						echo $inventory_json_obj[$j]['qty'] . "</p>";
 					}
@@ -63,6 +63,8 @@
 			}
 		?>
 	</div>
+	 
+	<?php require 'footer.php'; ?>
 	
 </body>
 </html>

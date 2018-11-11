@@ -9,12 +9,12 @@
 ?>
 
 <div class="col-12" id="topbar">
-	<div class="col-8">
+	<div class="col-10">
 		<a href="index.php"><h4>Shoe shop</h4></a>
 	</div>
 	<div class="col-2">
 			<div class="dropdown">
-				<button class="dropbtn">Cart</button>
+				<a href="shopping_cart.php"><button class="dropbtn">Cart</button></a>
 					<div class="dropdown-content" style="width:200%">
 						<?php
 							
@@ -54,20 +54,20 @@
 				if (isset($_SESSION['user_info']))
 				{
 					echo	'<div class="dropdown">
-								<button class="dropbtn">Account</button>
-									<div class="dropdown-content" style="width:200%;right:0%">
-											<a href="account.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign"></i>&ensp;Account</button></a></br>
-											<form method="post" action="#"><button type="submit" value="Logout" name="logout" class=btntopbar style="width:100%"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</button></form></br>
+								<a href="account.php"><button class="dropbtn">Account</button>
+									<div class="dropdown-content" style="width:200%;right:0%"></a>
+										<a href="account.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign"></i>&ensp;Account</button></a></br>
+										<form method="post" action="#"><button type="submit" value="Logout" name="logout" class=btntopbar style="width:100%"><i class="fas fa-sign-out-alt"></i>&ensp;Logout</button></form></br>
 									</div>
 							</div>';
 				}
 				else
 				{
 					echo	'<div class="dropdown">
-								<button class="dropbtn">Login</button>
+								<a href="login.php"><button class="dropbtn">Login</button></a>
 									<div class="dropdown-content" style="width:200%;right:0%">
-											<a href="register.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign"></i>&ensp;Register</button></a></br>
-											<a href="login.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign-in-alt"></i>&ensp;Login</button></a></br>
+										<a href="login.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign-in-alt"></i>&ensp;Login</button></a></br>
+										<a href="register.php"><button class=btntopbar style="width:100%"><i class="fas fa-sign"></i>&ensp;Register</button></a></br>	
 									</div>
 							</div>';
 				}

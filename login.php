@@ -20,12 +20,16 @@
 		<input type="submit" value="Login" name="login">
 	</form>
 
-<?php
-	if (isset($_POST['login']))
-	{
-		user_login($_POST['email'], $_POST['password']);
-	}
-?>
+	<?php
+		if (isset($_POST['login']))
+		{
+			user_login($_POST['email'], $_POST['password']);
+		}
+	?>
+	
+	<?php 
+		require "footer.php";
+	?>
 	
 </body>
 </html>
