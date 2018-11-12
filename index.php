@@ -30,8 +30,8 @@
 						if(($json[$i]['gender']===$_POST['gender'] || $_POST['gender'] === "all")
 							&& ($json[$i]['brand']===$_POST['brand'] || $_POST['brand'] === "all")
 							&& ($json[$i]['color']===$_POST['color'] || $_POST['color'] === "all")
-							&& ($json[$i]['size']>=$_POST['size-beginning'] || $json['size']<=$_POST['size-ending'])
-							&& ($json[$i]['price']>=$_POST['price-beginning'] || $json['price']<=$_POST['price-ending'])){
+							&& ($json[$i]['size']>=$_POST['size-beginning'] && $json[$i]['size']<=$_POST['size-ending'])
+							&& ($json[$i]['price']>=$_POST['price-beginning'] && $json[$i]['price']<=$_POST['price-ending'])){
 							echo "<tr>";
 							echo "<td><a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></td>";
 							echo "<td>" . $json[$i]['brand'] . "</td>";
