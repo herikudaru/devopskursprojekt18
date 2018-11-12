@@ -12,13 +12,8 @@
 		<div class="dropdown">
 			<button class="dropbtn">Size</button>
 			<div class="dropdown-content">
-				<input type="radio" name="size" value="0">all</br>
-				<input type="radio" name="size" value="1">1</br>
-				<input type="radio" name="size" value="2">2</br>
-				<input type="radio" name="size" value="3">3</br>
-				<input type="radio" name="size" value="4">4</br>
-				<input type="radio" name="size" value="5">5</br>
-				<input type="radio" name="size" value="6">6</br>
+				<input type="text" name="size-beginning" value="0">
+				<input type="text" name="size-ending" value="100">
 			</div>
 		</div>
 		<div class="dropdown">
