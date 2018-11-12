@@ -48,7 +48,7 @@
 
 		curl_setopt($curl_h, CURLOPT_HTTPHEADER,
 			array(
-				'authtoken: ' . $_SESSION['x-auth-token'],
+				'x_auth_token: ' . $_SESSION['x-auth-token'],
 			)
 		);
 		curl_setopt($curl_h, CURLOPT_RETURNTRANSFER, true);
