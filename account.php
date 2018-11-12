@@ -21,6 +21,7 @@
 			echo "<p>Address: " . $_SESSION['user_info']['adress'] . "</p>";
 			echo "<p>City: " . $_SESSION['user_info']['stad'] . "</p>";
 			echo "<p>Zip/Postal code: " . $_SESSION['user_info']['postnummer'] . "</p>";
+			echo "<a href='account_edit.php'><button>Edit</button></a>";
 			echo "</div>";
 		}
 		else

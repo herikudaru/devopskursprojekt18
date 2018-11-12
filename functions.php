@@ -58,6 +58,42 @@
 		$_SESSION['user_info'] = $user_info_json;
 	}
 	
+	function update_user_info($name, $email, $password, $adress, $postnummer, $stad)
+	{
+		$data = array(	"email" => $email, "name" => $name, 
+						"password" => $password, "homeadress" => $adress, 
+						"postnummer" => $postnummer, "stad" => $stad);
+		$data_string = json_encode($data);
+		
+		$ch = curl_init();
+		
+		$ch = curl_init('https://webshop-userdb-api.herokuapp.com/Users/update');                                                                      
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");                                                                     
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array( 
+			'authtoken: ' . $_SESSION['x-auth-token'],
+			'Content-Type: application/json',                                                                                
+			'Content-Length: ' . strlen($data_string))                                                                       
+		);
+		
+		$result = curl_exec($ch);
+		var_dump($result);
+		echo "</br>break</br>";
+		var_dump($data_string);
+		/*if (!curl_errno($result)) {
+			if (curl_getinfo($result, CURLINFO_HTTP_CODE) === 200) 
+			{
+				get_user_info();
+				header("Refresh:0; url=account.php");
+			}
+			else
+			{
+				echo "<script type='text/javascript'>alert('Something went wrong.');</script>";
+			}
+		}*/
+	}
+	
 	function user_logout()
 	{
 		unset($_SESSION['x-auth-token']);
