@@ -14,8 +14,6 @@
 	
 	<?php require 'filterbar.php'; ?>
 	
-	<?php var_dump($_POST); ?>
-	
 	<div class="col-12" id="product-list">
 		<table>
 			<tr>
@@ -28,15 +26,33 @@
 			</tr>
 			<?php
 				for($i = 0; $i < count($json); $i++)
-				{
-					echo "<tr>";
-					echo "<td><a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></td>";
-					echo "<td>" . $json[$i]['brand'] . "</td>";
-					echo "<td>" . $json[$i]['price'] . "</td>";
-					echo "<td>" . $json[$i]['color'] . "</td>";
-					echo "<td>" . $json[$i]['gender'] . "</td>";
-					echo "<td>" . $json[$i]['size'] . "</td>";
-					echo "</tr>";
+				{	if(isset($_POST['filter'])){
+						if(($json[$i]['gender']===$_POST['gender'] || $_POST['gender'] === "all")
+							&& ($json[$i]['brand']===$_POST['brand'] || $_POST['brand'] === "all")
+							&& ($json[$i]['color']===$_POST['color'] || $_POST['color'] === "all")
+							&& ($json[$i]['size']>=$_POST['size-beginning'] || $json['size']<=$_POST['size-ending'])
+							&& ($json[$i]['price']>=$_POST['price-beginning'] || $json['price']<=$_POST['price-ending'])){
+							echo "<tr>";
+							echo "<td><a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></td>";
+							echo "<td>" . $json[$i]['brand'] . "</td>";
+							echo "<td>" . $json[$i]['price'] . "</td>";
+							echo "<td>" . $json[$i]['color'] . "</td>";
+							echo "<td>" . $json[$i]['gender'] . "</td>";
+							echo "<td>" . $json[$i]['size'] . "</td>";
+							echo "</tr>";
+						}
+					}
+					else
+					{
+						echo "<tr>";
+							echo "<td><a href='product_page.php?productid=" . $json[$i]['id'] . "'>" . $json[$i]['name'] . "</a></td>";
+							echo "<td>" . $json[$i]['brand'] . "</td>";
+							echo "<td>" . $json[$i]['price'] . "</td>";
+							echo "<td>" . $json[$i]['color'] . "</td>";
+							echo "<td>" . $json[$i]['gender'] . "</td>";
+							echo "<td>" . $json[$i]['size'] . "</td>";
+							echo "</tr>";
+					}
 				}
 			?>
 		</table>

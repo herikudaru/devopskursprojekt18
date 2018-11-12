@@ -8,7 +8,32 @@
 				<input type="radio" name="gender" value="male">Male</br>
 			</div>
 		</div>
-		
+		<div class="dropdown">
+			<button class="dropbtn">Brand</button>
+			<div class="dropdown-content">
+				<?php
+					$brands = ["all"];
+					for($i = 0; $i < count($json); $i++)
+					{
+						if (!in_array($json[$i]['brand'], $brands))
+						{
+							array_push($brands, $json[$i]['brand']);
+						}
+					}
+					for ($i = 0; $i < count($brands); $i++)
+					{
+						if ($i === 0)
+						{
+							echo "<input type='radio' name='brand' value='" . $brands[$i] . "' checked='checked'>" . $brands[$i] . "</br>";
+						}
+						else
+						{
+							echo "<input type='radio' name='brand' value='" . $brands[$i] . "'>" . $brands[$i] . "</br>";
+						}
+					}
+				?>
+			</div>
+		</div>
 		<div class="dropdown">
 			<button class="dropbtn">Size</button>
 			<div class="dropdown-content">
@@ -26,10 +51,27 @@
 		<div class="dropdown">
 			<button class="dropbtn">Color</button>
 			<div class="dropdown-content">
-				<input type="radio" name="color" value="all" checked="checked">All</br>
-				<input type="radio" name="color" value="red">Red</br>
-				<input type="radio" name="color" value="green">Green</br>
-				<input type="radio" name="color" value="blue">Blue</br>
+				<?php
+					$colors = ["all"];
+					for($i = 0; $i < count($json); $i++)
+					{
+						if (!in_array($json[$i]['color'], $colors))
+						{
+							array_push($colors, $json[$i]['color']);
+						}
+					}
+					for ($i = 0; $i < count($brands); $i++)
+					{
+						if ($i === 0)
+						{
+							echo "<input type='radio' name='color' value='" . $colors[$i] . "' checked='checked'>" . $colors[$i] . "</br>";
+						}
+						else 
+						{
+							echo "<input type='radio' name='color' value='" . $colors[$i] . "'>" . $colors[$i] . "</br>";
+						}
+					}
+				?>
 			</div>
 		</div>
 		<input type="submit" value="Filter" name="filter">
