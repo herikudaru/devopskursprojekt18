@@ -7,6 +7,7 @@
 			<input type="radio" name="gender" value="male">Male</br>
 		</div>
 	</div>
+	
 	<div class="dropdown">
 		<button class="dropbtn">Size</button>
 		<div class="dropdown-content">
