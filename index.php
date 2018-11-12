@@ -14,6 +14,8 @@
 	
 	<?php require 'filterbar.php'; ?>
 	
+	<?php var_dump($_POST); ?>
+	
 	<div class="col-12" id="product-list">
 		<table>
 			<tr>
